@@ -13,19 +13,52 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Sign in", new_user_session_path %>
-      </li>
-      <% end %>
+      <nav class="navber navber-expand-lg navber-dark bg-dark">
+      <div class="container">
+        <a class="navber-brand" href="/">
+          <span>Bookers</span>
+        </a>
+        <button class="navber-toggler" type="button" data-toggle="collapse" data-target="#navberNavDropdown"
+                      aria-controls="navberNavDropdown" aria-expanded="true" aria-label="Toggle-navigation">
+          <span class="navber-toggler-icon"></span>
+        </button>
+        <div class="navber-collapse collapse show" id="navberNavDropdown" style>
+          <ul class="navber-nav ml-auto">
+            <li>
+              <a class="nav-link text-light" href="/">
+                <i class="fa-solid fa-house">"Home"</i>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="homes/about">
+                <i class="fa-solid fa-link">About</i>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/users/sign_up">
+                <i class="fa-solid fa-user-plus">Sign up</i>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href=" /users/sign_in">
+                <i class="fa-solid fa-right-to-bracket">Log in</i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     </header>
     <%= yield %>
+    
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
