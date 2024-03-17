@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script src="https://kit.fontawesome.com/4d93a7d0d7.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -22,8 +22,30 @@
                       aria-controls="navberNavDropdown" aria-expanded="false" aria-label="Toggle-navigation">
           <span class="navber-toggler-icon"></span>
         </button>
-        <div class="collapse navber-collapse" id="navberNavDropdown" style>
+        <div class="navber-collapse collapse show" id="navberNavDropdown">
           <ul class="navber-nav ml-auto">
+          <% if user_signed_in? %>
+            <li>
+              <a class="nav-link text-light" href="/">
+                <i class="fa-solid fa-house">"Home"</i>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/users">
+                <i class="fa-solid fa-users">Users</i>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/books">
+                <i class="fa-solid fa-book-open">Books</i>
+              </a>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-right-from-bracket">Log out</i>
+              <% end %>
+            </li>
+          <% else %>
             <li>
               <a class="nav-link text-light" href="/">
                 <i class="fa-solid fa-house">"Home"</i>
@@ -44,13 +66,14 @@
                 <i class="fa-solid fa-right-to-bracket">Log in</i>
               </a>
             </li>
+          <% end %>
           </ul>
         </div>
       </div>
     </nav>
     </header>
     <%= yield %>
-    
+
     <footer>
       <div class="container mt-5">
         <div class="row">
