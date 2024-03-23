@@ -4,19 +4,17 @@
     <div class="col-md-3">
       <h2>User info</h2>
       <%= image_tag "no_image.jpg" %>
-      <tabel class="tabel">
-        <tbody>
-          <tr></tr>
-          <tr>
-            <th>name</th>
-            <th><%= current_user.name %></th>
-          </tr>
-          <tr>
-          <th>introduction</th>
+      <table class="table">
+        <tr></tr>
+        <tr>
+          <th>Name</th>
+          <th><%= current_user.name %></th>
+        </tr>
+        <tr>
+          <th>Introduction</th>
           <th></th>
-          </tr>
-        </tbody>
-      </tabel>
+        </tr>
+      </table>
       <div class="row">
           <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
           <i class="fa-solid fa-user-gear"></i>
@@ -58,5 +56,8 @@
           </tr>
         </tbody>
         <% end %>
-    </table>
+      </table>
+    </div>
+    </div>
+  </div>
 </main>
